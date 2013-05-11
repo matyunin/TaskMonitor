@@ -1,4 +1,6 @@
 - unless @projects.empty?
-  = @projects.count
+  .btn-group.btn-group-vertical
+    - @projects.each do |p|
+      %a.btn{:href => project_path(p)}= p.name
 - else
   Empty
