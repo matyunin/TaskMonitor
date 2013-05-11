@@ -13,7 +13,7 @@
           .btn-group
             %a.btn.btn-primary{:href => '#'}
               %i.icon-user.icon-white
-              = current_user.email
+              = current_user.email.split('@')[0]
             %a.btn.btn-primary.dropdown-toggle{:href => '#', 'data-toggle' => 'dropdown'}
               %span.caret
             %ul.dropdown-menu
