@@ -1,0 +1,2 @@
+#!/bin/bash
+bundle exec puma -e development -b unix:///var/run/taskmonitor.sock &
