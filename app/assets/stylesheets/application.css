@@ -16,3 +16,7 @@ body{
     padding: 0;
     background-color: white;
 }
+
+.projects-list{
+    margin: 15px 0 0 0;
+}

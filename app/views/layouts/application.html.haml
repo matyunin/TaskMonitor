@@ -11,10 +11,11 @@
   %body
     .container
       .row
-        .span3
-          %h1 Меню
-          = render :partial => "layouts/profile_controls"
-          = render :partial => "projects/menu_left", :object => @projects
+        - if user_signed_in?
+          .span3
+            %h1 Меню
+            = render :partial => "layouts/profile_controls"
+            = render :partial => "projects/menu_left", :object => @projects
 
         .span9
           %h1 TaskMonitor
