@@ -11,7 +11,7 @@
   %body
     .container
       .row
-        .span2
+        .span3
           %h1 Меню
           .btn-group
             %a.btn.btn-primary{:href => '#'}
@@ -20,12 +20,16 @@
             %a.btn.btn-primary.dropdown-toggle{:href => '#', 'data-toggle' => 'dropdown'}
               %span.caret
             %ul.dropdown-menu
+              %li
+                %a{:href => '#'}
+                  %i
+                  Профиль
               %li.divider
               %li
                 %a{:href => destroy_user_session_path}
                   %i
                   Выйти
-        .span10
+        .span9
           %h1 TaskMonitor
 
           - if current_user
