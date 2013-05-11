@@ -1,6 +1,14 @@
-- unless @projects.empty?
-  .btn-group.btn-group-vertical
-    - @projects.each do |p|
-      %a.btn{:href => project_path(p)}= p.name
-- else
-  Empty
+.projects-list
+  - unless @projects.empty?
+
+    .btn-group.btn-group-vertical
+      - @projects.each do |p|
+        %a.btn{:href => project_path(p)}= p.name
+
+      %a.btn{:href => '#'}
+        %i.icon-plus
+        Добавить проект
+
+  - else
+
+    Empty
