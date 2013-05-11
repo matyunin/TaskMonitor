@@ -7,15 +7,21 @@
     = csrf_meta_tags
   %body
     .container
-      - if current_user
-        = "Signed in as #{current_user.email}"
-        = link_to "Sign out", destroy_user_session_path
-      - else
-        = link_to "Sign in", new_user_session_path
+      .row
+        .span2
+          %h1 'Меню'
+        .span10
+          %h1 'TaskMonitor'
 
-      =yield
+          - if current_user
+            = "Signed in as #{current_user.email}"
+            = link_to "Sign out", destroy_user_session_path
+          - else
+            = link_to "Sign in", new_user_session_path
 
-      %p.notice
-        = notice
-      %p.alert
-        = alert
+          =yield
+
+          %p.notice
+            = notice
+          %p.alert
+            = alert
