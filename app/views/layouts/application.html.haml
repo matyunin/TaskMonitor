@@ -11,9 +11,10 @@
   %body
     .container
       .row
-        .navbar
-          .navbar-inner
-            %a.brand{:href => projects_path} TaskMonitor
+        .span12
+          .navbar
+            .navbar-inner
+              %a.brand{:href => projects_path} TaskMonitor
       .row
         - if user_signed_in?
           .span3
