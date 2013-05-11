@@ -16,6 +16,10 @@
           .navbar
             .navbar-inner
               %a.brand{:href => projects_path} TaskMonitor
+              %ul.nav
+                %li
+                  %a{:href => '#'} О проекте
+              </ul>
               = render :partial => "layouts/profile_controls"
       .row
         - if user_signed_in?
