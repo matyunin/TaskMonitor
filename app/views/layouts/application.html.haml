@@ -9,9 +9,21 @@
     .container
       .row
         .span2
-          %h1 'Меню'
+          %h1 Меню'
+            .btn-group
+              %a.btn.btn-primary{:href => '#'}
+                %i.icon-user.icon-white
+                  = #{current_user.email}
+              %a.btn.btn-primary.dropdown-toggle{:href => '#', :data-toggle => 'dropdown'}
+                %span.caret
+              %ul.dropdown-menu
+                %li.divider
+                %li
+                  %a{:href => '#'}
+                    %i
+                    Выйти
         .span10
-          %h1 'TaskMonitor'
+          %h1 TaskMonitor
 
           - if current_user
             = "Signed in as #{current_user.email}"
