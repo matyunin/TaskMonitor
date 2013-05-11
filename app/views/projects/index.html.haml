@@ -1,5 +1,5 @@
-- if @projects.count > 0
-  %ul
-    - @projects.each do |p|
-      %li
-        = link_to p.name, project_path(p)
+%ul.breadcrumb
+  %li
+    %a{:href => root_path} TaskMonitor
+    %span.divider
+  %li.active Проекты

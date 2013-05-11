@@ -26,11 +26,6 @@
           .span3
             = render :partial => "projects/menu_left", :object => @projects
         .span9
-          - if current_user
-            = "Signed in as #{current_user.email}"
-            = link_to "Sign out", destroy_user_session_path
-          - else
-            = link_to "Sign in", new_user_session_path
 
           =yield
 
