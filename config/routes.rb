@@ -3,7 +3,7 @@ Taskmonitor::Application.routes.draw do
 
   get "projects/index"
 
-  authenticated :user do
+  authenticated do
     root :to => "projects#index"
   end
 
