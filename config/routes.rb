@@ -3,6 +3,10 @@ Taskmonitor::Application.routes.draw do
 
   get "projects/index"
 
+  authenticated :user do
+    root :to => "projects#index"
+  end
+
   root :to => "home#index"
 
   # The priority is based upon order of creation:
