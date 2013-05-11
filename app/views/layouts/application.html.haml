@@ -11,15 +11,16 @@
   %body
     .container
       .row
+        .navbar
+          .navbar-inner
+            %a.brand{:href => projects_path} TaskMonitor
+      .row
         - if user_signed_in?
           .span3
-            %h1 Меню
             = render :partial => "layouts/profile_controls"
             = render :partial => "projects/menu_left", :object => @projects
 
         .span9
-          %h1 TaskMonitor
-
           - if current_user
             = "Signed in as #{current_user.email}"
             = link_to "Sign out", destroy_user_session_path
