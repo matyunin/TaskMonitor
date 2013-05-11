@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
+  before_filter :authenticate_user!
   def index
-    before_filter :authenticate_user!
   end
 end
