@@ -1,7 +1,7 @@
 Taskmonitor::Application.routes.draw do
   get "projects/index"
 
-  root :to => "projects#index"
+  root :to => "home#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
