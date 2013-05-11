@@ -12,14 +12,13 @@
           %h1 Меню
           .btn-group
             %a.btn.btn-primary{:href => '#'}
-              %i.icon-user.icon-white
-                = #{current_user.email}
+              %i.icon-user.icon-white #{current_user.email}
             %a.btn.btn-primary.dropdown-toggle{:href => '#', 'data-toggle' => 'dropdown'}
               %span.caret
             %ul.dropdown-menu
               %li.divider
               %li
-                %a{:href => '#'}
+                %a{:href => destroy_user_session_path}
                   %i
                   Выйти
         .span10
