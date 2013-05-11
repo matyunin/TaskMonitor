@@ -33,9 +33,10 @@ Taskmonitor::Application.configure do
   config.assets.compress = false
 
   # Expands the lines which load the assets
-  config.assets.debug = false
+  config.assets.debug = true
 
   config.assets.compile = false
+  config.serve_static_assets = false
 
   # Devise settings
   config.action_mailer.default_url_options = { :host => 'localhost' }
