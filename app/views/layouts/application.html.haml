@@ -18,7 +18,8 @@
               %ul.nav.pull-right
                 %li.dropdown
                   %a.dropdown-toggle{:href => '#', 'data-toggle' => "dropdown"}
-                    Dropdown
+                    %i.icon-user.icon-black
+                    = current_user.email.split('@')[0]
                     %b.caret
                   %ul.dropdown-menu
                     %li
