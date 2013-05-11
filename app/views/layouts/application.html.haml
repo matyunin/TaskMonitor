@@ -13,25 +13,9 @@
       .row
         .span3
           %h1 Меню
-
+          = render :partial => "layouts/profile_controls"
           = render :partial => "projects/menu_left", :object => @projects
 
-          .btn-group
-            %a.btn.btn-primary{:href => '#'}
-              %i.icon-user.icon-white
-              = current_user.email.split('@')[0]
-            %a.btn.btn-primary.dropdown-toggle{:href => '#', 'data-toggle' => 'dropdown'}
-              %span.caret
-            %ul.dropdown-menu
-              %li
-                %a{:href => '#'}
-                  %i
-                  Профиль
-              %li.divider
-              %li
-                %a{:href => destroy_user_session_path}
-                  %i
-                  Выйти
         .span9
           %h1 TaskMonitor
 
