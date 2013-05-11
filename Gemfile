@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+git 'git://github.com/carlhuda/bundler.git' do
+  gem 'bundler'
+end
+
 gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
@@ -7,7 +11,11 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 gem 'haml-rails'
-gem 'devise'
+
+git 'git://github.com/plataformatec/devise.git' do
+  gem 'devise'
+end
+
 gem 'yaml_db'
 gem 'mysql2'
 

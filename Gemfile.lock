@@ -1,3 +1,18 @@
+GIT
+  remote: git://github.com/carlhuda/bundler.git
+  revision: 3d7fcaa17b2fffa831c546a10b791784eb152414
+  specs:
+
+GIT
+  remote: git://github.com/plataformatec/devise.git
+  revision: 4e2cdc2d5b812c2df1a60a2510f149c84cae3cf9
+  specs:
+    devise (3.0.0.rc)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      warden (~> 1.2.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -38,11 +53,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
-    devise (2.2.4)
-      bcrypt-ruby (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (~> 3.1)
-      warden (~> 1.2.1)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -124,8 +134,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler!
   coffee-rails (~> 3.2.1)
-  devise
+  devise!
   haml-rails
   jquery-rails
   mysql2

@@ -1,4 +1,6 @@
 Taskmonitor::Application.routes.draw do
+  devise_for :users
+
   get "projects/index"
 
   root :to => "home#index"
