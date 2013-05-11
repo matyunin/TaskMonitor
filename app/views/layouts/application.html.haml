@@ -15,28 +15,11 @@
           .navbar
             .navbar-inner
               %a.brand{:href => projects_path} TaskMonitor
-              %ul.nav.pull-right
-                %li.dropdown
-                  %a.dropdown-toggle{:href => '#', 'data-toggle' => "dropdown"}
-                    %i.icon-user.icon-black
-                    = current_user.email.split('@')[0]
-                    %b.caret
-                  %ul.dropdown-menu
-                    %li
-                      %a{:href => '#'}
-                        %i
-                        Профиль
-                    %li.divider
-                    %li
-                      %a{:href => destroy_user_session_path}
-                        %i
-                        Выйти
+              = render :partial => "layouts/profile_controls"
       .row
         - if user_signed_in?
           .span3
-            = render :partial => "layouts/profile_controls"
             = render :partial => "projects/menu_left", :object => @projects
-
         .span9
           - if current_user
             = "Signed in as #{current_user.email}"
