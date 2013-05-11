@@ -12,7 +12,8 @@
           %h1 Меню
           .btn-group
             %a.btn.btn-primary{:href => '#'}
-              %i.icon-user.icon-white #{current_user.email}
+              %i.icon-user.icon-white
+                = #{current_user.email}
             %a.btn.btn-primary.dropdown-toggle{:href => '#', 'data-toggle' => 'dropdown'}
               %span.caret
             %ul.dropdown-menu
