@@ -14,7 +14,7 @@
         .span3
           %h1 Меню
 
-          = render "projects/menu_left"
+          = render :partial => "projects/menu_left", :object => @projects
 
           .btn-group
             %a.btn.btn-primary{:href => '#'}
