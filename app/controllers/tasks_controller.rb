@@ -3,4 +3,8 @@ class TasksController < ApplicationController
     puts params.inspect
     render :layout => false
   end
+
+  def create
+
+  end
 end
