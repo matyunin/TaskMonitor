@@ -15,6 +15,11 @@ class TasksController < ApplicationController
         :description  => params[:description]
     )
     @task.save!
+    self::recalc
     #respond_to :json
+  end
+
+  def recalc
+    puts 'aaa!!!'
   end
 end
