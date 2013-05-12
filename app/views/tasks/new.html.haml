@@ -3,19 +3,19 @@
     %legend Создать задачу
 
     %label Название
-    %input{:type => 'text', :placeholder => 'название задачи'}
+    %input{:name => 'task[name]', :type => 'text', :placeholder => 'название задачи'}
 
     %label Дата начала
-    %input.datapick{:type => 'text'}
+    %input.datapick{:name => 'task[start]', :type => 'text'}
 
     %label Дата завершения
-    %input.datapick{:type => 'text'}
+    %input.datapick{:name => 'task[finish]', :type => 'text'}
 
     %label Приоритет
-    %input{:type => 'text', :placeholder => '1-100'}
+    %input{:name => 'task[priority]', :type => 'text', :placeholder => '1-100'}
 
     %label Описание
-    %textarea{:placeholder => 'Краткое описание задачи'}
+    %textarea{:name => 'task[description]', :placeholder => 'Краткое описание задачи'}
 
     %br
     %br
