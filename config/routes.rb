@@ -2,6 +2,7 @@ Taskmonitor::Application.routes.draw do
   devise_for :users
 
   resources :projects
+  resources :tasks
 
   authenticated do
     root :to => "projects#index"
