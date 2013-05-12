@@ -1,5 +1,7 @@
 $(function(){
     var BTN_TASK_ADD = $('#add_task');
+    var FORM_TASK_NEW = $('.task-new');
+    var INP_DATAPICKER = $(.datapick);
 
     var FN_TASK_ADD = function(e){
         e.preventDefault();
@@ -23,7 +25,7 @@ $(function(){
         });
     };
 
-    $(document).on('click', '.datapick', function(e){
+    var FN_DATAPICKER_CLICK = function(e){
         e.stopPropagation();
         e.preventDefault();
         $(this).datepicker({
@@ -31,7 +33,15 @@ $(function(){
             showOn: 'focus',
             dateFormat: 'dd.mm.yy'
         }).focus();
-    });
+    };
 
+    var FN_TASK_NEW = function(e){
+        e.stopPropagation();
+        e.preventDefault();
+
+    };
+
+    $(document).on('click', INP_DATAPICKER.selector, FN_DATAPICKER_CLICK);
+    $(document).on('submit', FORM_TASK_NEW.selector, FN_TASK_NEW);
     BTN_TASK_ADD.click(FN_TASK_ADD);
 })
