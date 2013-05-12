@@ -9,12 +9,12 @@ class Task
   key :project,     Integer
   key :description, String
 
-  many :points
-  many :plots
+  many :points, :dependent => :destroy
+  many :plots, :dependent => :destroy
 end
 
 class Point
-  include MongoMapper::EmbeddedDocument
+  include MongoMapper::Document
 
   key :time,      String
   key :priority,  Integer
@@ -23,7 +23,7 @@ class Point
 end
 
 class Plot
-  include MongoMapper::EmbeddedDocument
+  include MongoMapper::Document
 
   key :time,      String
   key :priority,  Integer
