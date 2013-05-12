@@ -13,14 +13,14 @@ class Task
   many :plots
 end
 
-class Points
+class Point
   include MongoMapper::EmbeddedDocument
 
   key :time,      String
   key :priority,  Integer
 end
 
-class Plots
+class Plot
   include MongoMapper::EmbeddedDocument
 
   key :time,      String
