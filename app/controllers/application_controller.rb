@@ -7,8 +7,6 @@ class ApplicationController < ActionController::Base
     @controller = controller_name
     @action = action_name
 
-    require 'mongo'
-    include Mongo
     @mongo = MongoClient.new('localhost', 27017)
   end
 end
