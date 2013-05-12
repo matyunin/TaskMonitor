@@ -14,7 +14,7 @@
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
 
-    = javascript_include_tag "application", @controller, @action
+    = javascript_include_tag @controller
 
     = csrf_meta_tags
   %body
