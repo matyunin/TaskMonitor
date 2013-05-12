@@ -56,7 +56,8 @@ $(function(){
         e.stopPropagation();
         e.preventDefault();
         var data = $(this).serializeObject();
-        console.log(_.values(data));
+        var values = _.values(data);
+        console.log(_.find(values, function(val){return val=="";}));
     };
 
     $(document).on('click', INP_DATAPICKER.selector, FN_DATAPICKER_CLICK);
