@@ -18,6 +18,8 @@ class Point
 
   key :time,      String
   key :priority,  Integer
+
+  belongs_to :task
 end
 
 class Plot
@@ -25,4 +27,6 @@ class Plot
 
   key :time,      String
   key :priority,  Integer
+
+  belongs_to :task
 end
