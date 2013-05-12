@@ -12,8 +12,10 @@
 = render :partial => "projects/tasks/buttons"
 
 .page-content
-  - unless @tasks.empty?
-    %ul
-      - @tasks.each do |task|
-        %li
-          %a{:href => task_path(:id => task._id)}= task.name
+  .row
+    .span9
+      - unless @tasks.empty?
+        %ul
+          - @tasks.each do |task|
+            %li
+              %a{:href => task_path(:id => task._id)}= task.name
