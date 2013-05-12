@@ -1,7 +1,7 @@
 $(function(){
     var BTN_TASK_ADD = $('#add_task');
     var FORM_TASK_NEW = $('.task-new');
-    var INP_DATAPICKER = $(.datapick);
+    var INP_DATAPICKER = $('.datapick');
 
     var FN_TASK_ADD = function(e){
         e.preventDefault();
