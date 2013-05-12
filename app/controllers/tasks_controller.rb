@@ -21,6 +21,6 @@ class TasksController < ApplicationController
 
   def recalc
     tasks = Task.where(:project => 1)
-    common_points = tasks.map {|task| [task.start.to_i, task.points.map {|point| point.time.to_i} ]}
+    common_points = tasks.map {|task| [task.start.to_i]}
   end
 end
