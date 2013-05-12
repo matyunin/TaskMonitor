@@ -28,8 +28,9 @@ $(function(){
         e.preventDefault();
         $(this).datepicker({
             inline: true,
+            showOn: 'focus',
             dateFormat: 'dd.mm.yy'
-        });
+        }).focus();
     });
 
     BTN_TASK_ADD.click(FN_TASK_ADD);
