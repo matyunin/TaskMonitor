@@ -30,7 +30,7 @@ $(function(){
                 type: 'GET',
                 async: true,
                 cache: false,
-                data:  {}
+                data:  { project_id: $('#project').val() }
             },
             helpers : {
                 overlay : {
@@ -56,7 +56,6 @@ $(function(){
         e.stopPropagation();
         e.preventDefault();
         var data = $(this).serializeObject();
-        data.project_id = $('#project').val();
         var values = _.values(data);
         if(typeof _.find(values, function(val){return val=="";}) == 'undefined'){
             $.post(

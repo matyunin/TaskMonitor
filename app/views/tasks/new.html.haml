@@ -1,6 +1,6 @@
 %form.task-new{:action => url_for(:controller => 'tasks', :action => 'create')}
 
-  %input{:name => 'project', :type => 'hidden'}= @project_id
+  %input{:name => 'project', :type => 'hidden', :value => @project_id}
 
   %fieldset
     %legend Создать задачу
