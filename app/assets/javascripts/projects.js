@@ -3,9 +3,8 @@ $(function(){
 
     var FN_TASK_ADD = function(e){
         e.preventDefault();
-        $this = $(this);
         $.fancybox({
-            href: $this.attr('href'),
+            href: '/tasks/new',
             helpers : {
                 overlay : {
                     css : {
