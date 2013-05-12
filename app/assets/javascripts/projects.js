@@ -27,7 +27,8 @@ $(function(){
         e.stopPropagation();
         e.preventDefault();
         $(this).datepicker({
-            inline: true
+            inline: true,
+            dateFormat: 'dd.mm.yy'
         });
     });
 
