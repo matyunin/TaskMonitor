@@ -22,5 +22,7 @@ class TasksController < ApplicationController
   def recalc
     tasks = Task.where(:project => 1)
     common_points = tasks.map {|task| [task.start.to_i]}
+
+    puts common_points.inspect
   end
 end
