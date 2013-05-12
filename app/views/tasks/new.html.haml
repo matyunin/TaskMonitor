@@ -1,0 +1,14 @@
+%form
+  %fieldset
+    %legend Создать задачу
+
+    %label Название
+    %input{:type => 'text', :placeholder => 'название задачи'}
+
+    %label Приоритет
+    %input{:type => 'text', :placeholder => '1-100'}
+
+    %label Описание
+    %textarea{:placeholder => 'Краткое описание задачи'}
+
+    %button.btn{:type => 'submit'} Создать
