@@ -7,7 +7,7 @@
     %span.divider /
   %li.active= @project.name
 
-%input{:id => 'project', :type => 'hidden'}= @project.id
+%input{:id => 'project', :type => 'hidden', :value => @project.id}
 
 = render :partial => "projects/tasks/buttons"
 
