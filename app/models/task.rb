@@ -9,7 +9,7 @@ class Task
   key :project,     Integer
   key :description, String
 
-  many :points
+  #many :points
 end
 
 class Points
