@@ -38,7 +38,7 @@ $(function(){
     var FN_TASK_NEW = function(e){
         e.stopPropagation();
         e.preventDefault();
-
+        console.log($(this).serializeObject());
     };
 
     $(document).on('click', INP_DATAPICKER.selector, FN_DATAPICKER_CLICK);
