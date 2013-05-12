@@ -14,7 +14,9 @@ class TasksController < ApplicationController
         :duration     => (params[:duration].to_i * 24 * 3600).to_s,
         :priority     => params[:priority],
         :project      => params[:project].to_i,
-        :description  => params[:description]
+        :description  => params[:description],
+        :points       => [],
+        :plots        => []
     )
     @task.save!
 
