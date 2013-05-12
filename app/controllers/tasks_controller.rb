@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+
   def new
     @project_id = params[:project_id]
     render :layout => false
@@ -6,6 +7,7 @@ class TasksController < ApplicationController
 
   def create
     render :layout => false
+
     @task = Task.new(
         :name         => params[:name],
         :start        => params[:start].to_date.to_time.to_i.to_s,
@@ -15,14 +17,17 @@ class TasksController < ApplicationController
         :description  => params[:description]
     )
     @task.save!
-    self::recalc
+
+    self::recalculate params[:project].to_i
+
     #respond_to :json
   end
 
-  def recalc
-    tasks = Task.where(:project => 1)
+  def recalculate(project_id)
+    tasks = Task.where(:project => project_id)
     common_points = tasks.map {|task| [task.start.to_i]}
 
     puts common_points.inspect
   end
+
 end
