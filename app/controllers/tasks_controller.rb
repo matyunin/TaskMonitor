@@ -5,6 +5,6 @@ class TasksController < ApplicationController
   end
 
   def create
-
+    MongoMapper
   end
 end
