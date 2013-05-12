@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    MongoMapper
+    task = Task.new(:name => 'Brandon')
+    task.save!
   end
 end
