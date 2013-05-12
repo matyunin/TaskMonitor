@@ -21,7 +21,13 @@ $(function(){
                 }
             }
         });
-    }
+    };
+
+    $(document).on("click", ".datapick", function(){
+        $(this).datepicker({
+            inline: true
+        });
+    });
 
     BTN_TASK_ADD.click(FN_TASK_ADD);
 })
