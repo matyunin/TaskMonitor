@@ -18,6 +18,7 @@ end
 
 gem 'yaml_db'
 gem 'mysql2'
+gem 'mongo_mapper'
 
 # Gems used only for assets and not required
 # in production environments by default.
