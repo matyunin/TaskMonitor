@@ -58,7 +58,14 @@ $(function(){
         var data = $(this).serializeObject();
         var values = _.values(data);
         if(typeof _.find(values, function(val){return val=="";}) == 'undefined'){
-
+            $.post(
+                $(this).attr('action'),
+                data,
+                function(response){
+                    console.log(response);
+                },
+                'json'
+            );
         }else{
             alert('Все поля обязательны для заполнения')
         }
