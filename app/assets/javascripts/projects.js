@@ -23,7 +23,9 @@ $(function(){
         });
     };
 
-    $(document).on("click", ".datapick", function(){
+    $(document).on('click', '.datapick', function(e){
+        e.stopPropagation();
+        e.preventDefault();
         $(this).datepicker({
             inline: true
         });
