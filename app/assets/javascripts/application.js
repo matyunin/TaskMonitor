@@ -11,7 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery_ujs
-//= require self
+//= require_self
 
 $.fn.serializeObject = function()
 {
