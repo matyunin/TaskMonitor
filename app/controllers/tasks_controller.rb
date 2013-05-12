@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   end
 
   def create
+    render :layout => false
     task = Task.new(:name => 'Brandon')
     task.save!
   end
