@@ -55,7 +55,8 @@ $(function(){
     var FN_TASK_NEW = function(e){
         e.stopPropagation();
         e.preventDefault();
-        console.log($(this).serializeObject());
+        var data = $(this).serializeObject();
+        console.log(_.values(data));
     };
 
     $(document).on('click', INP_DATAPICKER.selector, FN_DATAPICKER_CLICK);
