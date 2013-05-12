@@ -13,6 +13,6 @@ class TasksController < ApplicationController
         :description  => params[:description]
     )
     @task.save!
-    respond_to :json
+    #respond_to :json
   end
 end
