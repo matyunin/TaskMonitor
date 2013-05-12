@@ -11,3 +11,11 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery_ujs
+
+$(function(){
+    $(document).on("click", ".datapick", function(){
+        $(this).datepicker({
+            inline: true
+        });
+    });
+});
