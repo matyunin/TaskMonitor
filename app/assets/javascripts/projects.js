@@ -5,12 +5,13 @@ $(function(){
         e.preventDefault();
         $this = $(this);
         $.fancybox({
+            type: 'ajax',
+            href: $this.attr('href'),
             ajax : {
                 type: 'GET',
                 async: true,
                 cache: false,
-                url:   $this.attr('href')
-                //data:  "pg="+url
+                data:  {}
             },
             helpers : {
                 overlay : {
