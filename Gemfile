@@ -18,6 +18,8 @@ end
 
 gem 'yaml_db'
 gem 'mysql2'
+gem "mongo"
+gem "mongo_ext"
 gem 'mongo_mapper'
 
 # Gems used only for assets and not required
