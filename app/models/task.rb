@@ -2,8 +2,8 @@ class Task
   include MongoMapper::Document
 
   key :name, String
-  key :start,  Integer
-  key :duration,  Integer
+  key :start,  String
+  key :duration,  String
   key :priority,  Integer
   key :description,  String
   key :points,  Array
