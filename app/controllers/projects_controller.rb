@@ -10,5 +10,6 @@ class ProjectsController < ApplicationController
     @user = current_user
     @projects = @user.projects
     @project = Project.find(params[:id])
+    @tasks = Task.where(:project => @project.id)
   end
 end

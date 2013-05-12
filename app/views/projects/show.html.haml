@@ -12,4 +12,8 @@
 = render :partial => "projects/tasks/buttons"
 
 .page-content
-  !!!
+  - unless @tasks.empty?
+    %ul
+      - @tasks.each do |task|
+        %li
+          %a{:href => task_path}= task.name
