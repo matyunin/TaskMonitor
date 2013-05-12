@@ -57,7 +57,11 @@ $(function(){
         e.preventDefault();
         var data = $(this).serializeObject();
         var values = _.values(data);
-        console.log(_.find(values, function(val){return val=="";}));
+        if(typeof _.find(values, function(val){return val=="";}) == 'undefined'){
+
+        }else{
+            alert('Все поля обязательны для заполнения')
+        }
     };
 
     $(document).on('click', INP_DATAPICKER.selector, FN_DATAPICKER_CLICK);
