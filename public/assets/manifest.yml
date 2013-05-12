@@ -1,0 +1,23 @@
+---
+blank.gif: blank.gif
+blank/index.gif: blank.gif
+fancybox_buttons.png: fancybox_buttons.png
+fancybox_buttons/index.png: fancybox_buttons.png
+fancybox_loading.gif: fancybox_loading.gif
+fancybox_loading/index.gif: fancybox_loading.gif
+fancybox_overlay.png: fancybox_overlay.png
+fancybox_overlay/index.png: fancybox_overlay.png
+fancybox_sprite.png: fancybox_sprite.png
+fancybox_sprite/index.png: fancybox_sprite.png
+glyphicons-halflings-white.png: glyphicons-halflings-white.png
+glyphicons-halflings-white/index.png: glyphicons-halflings-white.png
+glyphicons-halflings.png: glyphicons-halflings.png
+glyphicons-halflings/index.png: glyphicons-halflings.png
+rails.png: rails.png
+rails/index.png: rails.png
+application.js: application.js
+application/index.js: application.js
+application.css: application.css
+application/index.css: application.css
+jquery.min.map: jquery.min.map
+jquery/index.min.map: jquery.min.map
