@@ -8,5 +8,13 @@ class Task
   key :priority,    Integer
   key :project,     Integer
   key :description, String
-  key :points,      Array
+
+  many :points
+end
+
+class Points
+  include MongoMapper::EmbeddedDocument
+
+  key :time,      String
+  key :priority,  Integer
 end
