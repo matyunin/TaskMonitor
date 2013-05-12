@@ -16,4 +16,4 @@
     %ul
       - @tasks.each do |task|
         %li
-          %a{:href => task_path}= task.name
+          %a{:href => task_path(:id => task._id)}= task.name
