@@ -2,7 +2,19 @@ $(function(){
     var BTN_TASK_ADD = $('#add_task');
     var FORM_TASK_NEW = $('.task-new');
     var INP_DATAPICKER = $('.datapick');
-alert(time_interval.start)
+
+    drawGrid(
+        $('.tasks-container'),
+        time_interval.start,
+        time_interval.finish
+    );
+
+    function drawGrid(container, start, stop){
+        var one = $('<div class="v-line"></div>');
+        var count = parseInt( (stop - start) / (3600 * 24) );
+        alert(count);
+    }
+
     $.fn.serializeObject = function()
     {
         var o = {};

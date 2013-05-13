@@ -54,7 +54,7 @@ class TasksController < ApplicationController
       tasks_intersects.each do |task|
         priority = self::rel_priority(task, tasks_intersects)
 
-	estimiate_time = task.duration.to_i - durations[task.id.to_s].to_i
+	      estimiate_time = task.duration.to_i - durations[task.id.to_s].to_i
         available_time = @@hours * 3600 * priority / 100
 
         priority = 0 if self::is_working_day? timestamp	
@@ -72,7 +72,7 @@ class TasksController < ApplicationController
           :priority => priority
         )
 
-	task.finish = timestamp
+	      task.finish = timestamp
         task.plots << plot
         task.save!
       end
