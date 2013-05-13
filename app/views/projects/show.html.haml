@@ -11,11 +11,14 @@
 
 = render :partial => "projects/tasks/buttons"
 
+%script 
+  var time_interval = #{@json_time_interval.html_safe};
+  var tasks = #{@json_tasks.html_safe};
+
 .page-content
   .row
     .span9
       - unless @tasks.empty?
-        %ul
+        .tasks-container.span9
           - @tasks.each do |task|
-            %li
-              %a{:href => task_path(:id => task._id)}= task.name
+            .task-item= task.name
