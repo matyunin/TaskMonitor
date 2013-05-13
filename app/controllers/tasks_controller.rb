@@ -50,7 +50,7 @@ class TasksController < ApplicationController
 
       tasks.each do |task|
         priority = task.priority
-
+        @hours = 1
 
 
         plot.priority = self::is_working_day?(timestamp) ? priority : 0
