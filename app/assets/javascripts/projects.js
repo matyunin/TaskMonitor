@@ -2,7 +2,7 @@ $(function(){
     var BTN_TASK_ADD = $('#add_task');
     var FORM_TASK_NEW = $('.task-new');
     var INP_DATAPICKER = $('.datapick');
-    var day = 20;
+    var day = 60;
 
     drawGrid(
         $('.tasks-container'),
@@ -14,9 +14,10 @@ $(function(){
         var one = $('<div class="v-line"></div>');
         var count = parseInt( (stop - start) / (3600 * 24) );
         for(var i = 1; i <= count; i++){
+            var date = new Date((start + 3600 * 24 * (i-1) ) * 1000);
             one.clone().appendTo(container).css({
                 left: day * i
-            });
+            }).text(date.getDate()+'.'+(date.getMonth()+1)+'.'+date.getFullYear());
         }
         //alert(count);
     }
