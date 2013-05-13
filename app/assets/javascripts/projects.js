@@ -2,6 +2,7 @@ $(function(){
     var BTN_TASK_ADD = $('#add_task');
     var FORM_TASK_NEW = $('.task-new');
     var INP_DATAPICKER = $('.datapick');
+    var day = 20;
 
     drawGrid(
         $('.tasks-container'),
@@ -12,7 +13,12 @@ $(function(){
     function drawGrid(container, start, stop){
         var one = $('<div class="v-line"></div>');
         var count = parseInt( (stop - start) / (3600 * 24) );
-        alert(count);
+        for(var i = 1; i <= count; i++){
+            one.clone().appendTo(container).css({
+                left: day * i
+            });
+        }
+        //alert(count);
     }
 
     $.fn.serializeObject = function()
