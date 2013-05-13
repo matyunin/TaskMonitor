@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  @hours = 8
+  @@hours = 8
 
   def new
     @project_id = params[:project_id]
@@ -27,8 +27,6 @@ class TasksController < ApplicationController
     @task.save!
 
     self::recalculate params[:project].to_i
-
-    #respond_to :json
   end
 
   def recalculate(project_id)
@@ -37,34 +35,61 @@ class TasksController < ApplicationController
     timestamp = 0
 
     tasks = Task.where(:project => project_id)
-    common_points = tasks.map {|task| [task.start.to_i]}.uniq!.sort!
-    task_ids = tasks.map {|task| [task._id]}
+
+    tasks.each do |task|
+      task.plots.delete_all
+      task.save
+    end
+
+    common_points = tasks.map {|task| task.start.to_i}
+    common_points.uniq!
+    common_points.sort!
+
+    task_ids = tasks.map {|task| task.id.to_s}
     timestamp = common_points.first
 
     while task_ids.count > 0 do
-      plot = Plot.new(
-          :time => timestamp
-      )
-
       tasks_intersects = self::task_intersects(tasks, task_ids, timestamp)
+      
+      tasks_intersects.each do |task|
+        priority = self::rel_priority(task, tasks_intersects)
 
-      tasks.each do |task|
-        priority = task.priority
-        @hours = 1
+	estimiate_time = task.duration.to_i - durations[task.id.to_s].to_i
+        available_time = @@hours * 3600 * priority / 100
 
+        priority = 0 if self::is_working_day? timestamp	
 
-        plot.priority = self::is_working_day?(timestamp) ? priority : 0
+        if estimiate_time < available_time
+          priority = priority * estimiate_time / available_time
+          durations.delete task.id.to_s
+          task_ids.delete_if {|v| v == task.id.to_s}
+        else
+          durations[task.id.to_s] = durations[task.id.to_s].to_i + available_time   
+        end 
+
+        plot = Plot.create(
+          :time     => timestamp,
+          :priority => priority
+        )
+
+	task.finish = timestamp
+        task.plots << plot
+        task.save!
       end
-
+      
       timestamp += 3600 * 24
     end
+  end
 
-
-    puts common_points.inspect
+  def rel_priority(task, all_tasks)
+    (task.priority.to_i * 100).to_f / all_tasks.map {|task| task.priority.to_i}.inject {|sum,x| sum + x }.to_f
   end
 
   def task_intersects(all_tasks, available_ids, timestamp)
-    all_tasks.select {|task| task if task.start <= timestamp and available_ids.include? task._id}
+    #raise timestamp.to_yaml 
+    #raise all_tasks.map {|task| task.start.to_i}.to_yaml
+    #raise timestamp.to_yaml
+    all_tasks.select {|task| task if task.start.to_i <= timestamp and available_ids.include? task.id.to_s}
   end
 
   def is_working_day?(timestamp)

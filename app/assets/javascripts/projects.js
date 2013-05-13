@@ -2,7 +2,7 @@ $(function(){
     var BTN_TASK_ADD = $('#add_task');
     var FORM_TASK_NEW = $('.task-new');
     var INP_DATAPICKER = $('.datapick');
-
+alert(time_interval.start)
     $.fn.serializeObject = function()
     {
         var o = {};

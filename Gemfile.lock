@@ -45,6 +45,7 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
+    bson (1.8.5)
     builder (3.0.4)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -75,9 +76,18 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.23)
+    mongo (1.8.5)
+      bson (~> 1.8.5)
+    mongo_ext (0.19.3)
+    mongo_mapper (0.12.0)
+      activemodel (~> 3.0)
+      activesupport (~> 3.0)
+      plucky (~> 0.5.2)
     multi_json (1.7.2)
     mysql2 (0.3.11)
     orm_adapter (0.4.0)
+    plucky (0.5.2)
+      mongo (~> 1.5)
     polyglot (0.3.3)
     puma (1.6.3)
       rack (~> 1.2)
@@ -139,6 +149,9 @@ DEPENDENCIES
   devise!
   haml-rails
   jquery-rails
+  mongo
+  mongo_ext
+  mongo_mapper
   mysql2
   puma
   rails (= 3.2.13)
