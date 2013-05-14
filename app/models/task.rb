@@ -19,7 +19,7 @@ class Point
   key :time,      String
   key :priority,  Integer
 
-  belongs_to :task
+  belongs_to :task, :dependent => :destroy
 end
 
 class Plot
@@ -28,5 +28,5 @@ class Plot
   key :time,      String
   key :priority,  Integer
 
-  belongs_to :task
+  belongs_to :task, :dependent => :destroy
 end

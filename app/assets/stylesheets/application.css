@@ -22,26 +22,44 @@ body{
 }
 
 .tasks-container{
-    height: 300px;
-    background-color: silver;
+    height: 500px;
     margin: 20px 0 0 0;
     display: block;
     overflow: scroll;
     position: relative;
+    border-radius: 5px;
+    background: #f5f5f5;
+    border: 1px solid #d4d4d4;
+}
+.tasks-container .c{
+    position: relative;
 }
 
 .task-item{
-    background-color: rgb(200,220,220);
-    border-bottom: 1px dashed gray;
+    background-color: #FFF;
+    border: 1px dashed gray;
+    border-collapse: collapse;
     height: 89px;
     width: 3000px;
 }
 
 .v-line{
-    border-right: 1px dashed black;
+    border-right: 1px dashed #d4d4d4;
     width: 1px;
     background: transparent;
     position: absolute;
     top: 0;
     bottom: 0;
+}
+
+.v-date{
+    position: absolute;
+    top: 0px;
+    font-size: 9px;
+    right: 9px;
+}
+
+.page-content.about img.ava{
+    float: left;
+    margin: 0 15px 10px 0;
 }

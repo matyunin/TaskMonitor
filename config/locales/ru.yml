@@ -1,0 +1,10 @@
+ru:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "- Выбранный E-Mail уже используется"
+            password:
+              confirmation: "- Требуется подтвердить пароль"

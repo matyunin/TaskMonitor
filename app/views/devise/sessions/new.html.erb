@@ -1,17 +1,49 @@
-<h2>Sign in</h2>
+<ul class="breadcrumb">
+  <li>
+    <a href="<%= projects_path %>">TaskMonitor</a>
+    <span class="divider">/</span>
+  </li>
+  <li class="active">
+    Авторизация
+  </li>
+</ul>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <legend>Авторизация</legend>
+
+  <div class="control-group">
+    <label class="control-label">E-Mail</label>
+    <div class="controls">
+      <%= f.email_field :email, :autofocus => true %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label">Пароль</label>
+    <div class="controls">
+      <%= f.password_field :password %>
+    </div>
+  </div>
 
   <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+	  <div class="control-group">
+	    <div class="controls">
+	        <%= f.check_box :remember_me %> Запомнить меня
+	    </div>
+	  </div>
   <% end -%>
 
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit "Войти", :class => 'btn' %>
+    </div>
+  </div>
 
-<%= render "devise/shared/links" %>
+  <div class="control-group">
+    <div class="controls">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+
+<% end %>

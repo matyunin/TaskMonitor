@@ -18,6 +18,8 @@
     = javascript_include_tag "underscore-min"
     = javascript_include_tag "backbone-min"
 
+    = javascript_include_tag "raphael"
+
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
 
@@ -34,7 +36,7 @@
               %a.brand{:href => projects_path} TaskMonitor
               %ul.nav
                 %li
-                  %a{:href => '#'} О проекте
+                  %a{:href => page_path("about")} О проекте
               = render :partial => "layouts/profile_controls"
       .row
         - if user_signed_in? and not @projects.nil?
