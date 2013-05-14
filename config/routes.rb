@@ -4,12 +4,8 @@ Taskmonitor::Application.routes.draw do
   resources :projects
   resources :tasks
 
-  authenticated do
-    root :to => "projects#index"
-  end
-
-  root :to => "home#index"
-
+  root :to => "projects#index"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

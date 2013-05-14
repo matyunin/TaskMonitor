@@ -35,12 +35,12 @@
               %ul.nav
                 %li
                   %a{:href => '#'} О проекте
-              </ul>
               = render :partial => "layouts/profile_controls"
       .row
-        - if user_signed_in?
+        - if user_signed_in? and not @projects.nil?
           .span3
             = render :partial => "projects/menu_left", :object => @projects
+        
         .span9
 
           =yield

@@ -1,16 +1,20 @@
-%ul.nav.pull-right
-  %li.dropdown
-    %a.dropdown-toggle{:href => '#', 'data-toggle' => "dropdown"}
-      %i.icon-user.icon-black
-      = current_user.email
-      %b.caret
-    %ul.dropdown-menu
-      %li
-        %a{:href => '#'}
-          %i
-          Профиль
-      %li.divider
-      %li
-        %a{:href => destroy_user_session_path}
-          %i
-          Выйти
+- if user_signed_in?
+  %ul.nav.pull-right
+    %li.dropdown
+      %a.dropdown-toggle{:href => '#', 'data-toggle' => "dropdown"}
+        %i.icon-user.icon-black
+        = current_user.email
+        %b.caret
+      %ul.dropdown-menu
+        %li
+          %a{:href => projects_path} Проекты
+        %li
+          %a{:href => edit_user_registration_path} Профиль
+        %li.divider
+        %li
+          %a{:href => destroy_user_session_path} Выйти
+- else
+  .pull-right
+    .btn-group
+      %a.btn.btn-primary{:href => new_user_session_path} Войти
+      %a.btn{:href => new_user_registration_path} Зарегистрироваться

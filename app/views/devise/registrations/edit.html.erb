@@ -1,29 +1,75 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<ul class="breadcrumb">
+  <li>
+    <a href="<%= projects_path %>">TaskMonitor</a>
+    <span class="divider">/</span>
+  </li>
+  <li class="active">
+    Редактирование аккаунта
+  </li>
+</ul>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put , :class => 'form-horizontal'}) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <legend>Редактирование аккаунта</legend>
+
+  <div class="control-group">
+    <label class="control-label">E-Mail</label>
+    <div class="controls">
+      <%= f.email_field :email, :autofocus => true %>
+    </div>
+  </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <span class="label label-info">E-Mail ожидает подтверждения: <%= resource.unconfirmed_email %></span>
   <% end %>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+  <div class="control-group">
+    <label class="control-label">Пароль</label>
+    <div class="controls">
+      <%= f.password_field :password, :autocomplete => "off" %>
+      <br>
+      <i>Оставьте поле пустым, если не хотите изменять значение</i>
+    </div>
+  </div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <div class="control-group">
+    <label class="control-label">Подтверждение пароля</label>
+    <div class="controls">
+      <%= f.password_field :password_confirmation %>
+    </div>
+  </div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
+  <div class="control-group">
+    <label class="control-label">Текущий пароль</label>
+    <div class="controls">
+      <%= f.password_field :current_password %>
+      <br>
+      <i>Для применения изменений необходимо ввести текущий пароль</i>
+    </div>
+  </div>
 
-  <div><%= f.submit "Update" %></div>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit "Сохранить", :class => 'btn' %>
+    </div>
+  </div>
+
 <% end %>
 
-<h3>Cancel my account</h3>
+<form class="form-horizontal">
+  <legend>Отмена регистрации</legend>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+  <div class="control-group">
+    <label class="control-label">Удалить аккаунт?</label>
+    <div class="controls">
+      <%= button_to "Удалить", registration_path(resource_name), :data => { :confirm => "Вы уверены?" }, :method => :delete, :class => 'btn btn-danger' %>
+    </div>
+  </div>
 
-<%= link_to "Back", :back %>
+</form>
+
+
+
+
+<% #= link_to "Back", :back %>

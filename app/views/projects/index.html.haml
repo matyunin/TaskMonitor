@@ -5,4 +5,20 @@
   %li.active Проекты
 
 .page-content
-  Тут будет инфа о проектах
+  - @projects.each do |project|
+    .alert.alert-info
+      
+      %a.btn{:href => project_path(project)}
+        %i.icon-fire
+        = project.name
+
+      - unless project.description.nil?
+        %p
+          = project.description
+
+      %br
+      %br
+
+      %p
+        Задач:
+        = @tasks.select {|t| t.project==project.id}.count.to_i

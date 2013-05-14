@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
   def index
     @user = current_user
     @projects = @user.projects
+    @tasks = Task.where(:project.in => @projects.collect {|p| p.id}.to_a)
   end
 
   def show
