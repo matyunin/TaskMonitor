@@ -59,7 +59,7 @@ class TasksController < ApplicationController
         	
         #raise priority.to_yaml
 
-        if estimiate_time < available_time
+        if estimiate_time <= available_time
           priority = priority * estimiate_time / available_time
           durations.delete task.id.to_s
           task_ids.delete_if {|v| v == task.id.to_s}
