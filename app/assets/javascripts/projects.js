@@ -154,9 +154,14 @@ $(function(){
             for (var j = 1, jj = X.length; j < jj; j++) {
                 p.push(X[j], Y[j]);
             }
-            p = ["M", X[0], Y[0], "R"].concat(p);
-            var subaddon = "L" + (W - 10) + "," + (H - 10) + ",50," + (H - 10) + "z";
-            path.attr({path: p});
+            if(values.length>2){
+                p = ["M", X[0], Y[0], "R"].concat(p);
+                path.attr({path: p});
+            }else if(values.length==2){
+                p = ["M", X[0], Y[0], "L"].concat(p);
+                path.attr({path: p});
+            }
+            //var subaddon = "L" + (W - 10) + "," + (H - 10) + ",50," + (H - 10) + "z";
             //sub.attr({path: p + subaddon});
         }
         
