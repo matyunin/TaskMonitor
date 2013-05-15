@@ -186,26 +186,31 @@ $(function(){
             Y[i] = xy[1];
             (f = function (i, xy) {
                 buttons.push(r.circle(xy[0], xy[1], 5).attr({fill: color, stroke: "none"}));
-                blankets.push(r.circle(xy[0], xy[1], w / 2).attr({stroke: "none", fill: "#fff", opacity: 0}).mouseover(function () {
-                    if (isDrag + 1) {
-                        unhighlight = function () {};
-                    } else {
-                        buttons.items[i].animate({r: 10}, 200);
-                    }
-                }).mouseout(function () {
-                    if (isDrag + 1) {
-                        unhighlight = function () {
+                blankets.push(r.circle(xy[0], xy[1], w / 2)
+                    .attr({stroke: "none", fill: "#fff", opacity: 0})
+                    .mouseover(function () {
+                        if (isDrag + 1) {
+                            unhighlight = function () {};
+                        } else {
+                            buttons.items[i].animate({r: 10}, 200);
+                        }
+                    })
+                    .mouseout(function () {
+                        if (isDrag + 1) {
+                            unhighlight = function () {
+                                buttons.items[i].animate({r: 5}, 200);
+                            };
+                        } else {
                             buttons.items[i].animate({r: 5}, 200);
-                        };
-                    } else {
-                        buttons.items[i].animate({r: 5}, 200);
-                    }
-                }).drag(function (dx, dy) {
-                    var start = this.start;
-                    start && update(start.i, start.p + dy);
-                }, function (x, y) {
-                    this.start = {i: i, m: y, p: Y[i]};
-                }));
+                        }
+                    })
+                    /*.drag(function (dx, dy) {
+                        var start = this.start;
+                        start && update(start.i, start.p + dy);
+                    }, function (x, y) {
+                        this.start = {i: i, m: y, p: Y[i]};
+                    })*/
+                );
                 blankets.items[blankets.items.length - 1].node.style.cursor = "move";
             })(i, xy);
             if (i == ii - 1) {
