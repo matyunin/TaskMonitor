@@ -173,11 +173,18 @@ $(function(){
             buttons = r.set(),
             w = (W - 60) / values.length,
             isDrag = -1,
+            label = r.set(),
+            is_label_visible = false,
             start = null,
             sub = r.path().attr({stroke: "none", fill: [90, color, color].join("-"), opacity: 0}),
             path = r.path().attr({stroke: color, "stroke-width": 2}),
             unhighlight = function () {};
+
         var frame = r.popup(100, 100, label, "right").attr({fill: "#000", stroke: "#666", "stroke-width": 2, "fill-opacity": .7}).hide();
+        label.push(r.text(60, 12, "24 hits").attr(txt));
+        label.push(r.text(60, 27, "22 September 2008").attr(txt1).attr({fill: color}));
+        label.hide();
+
         var ii;
         for (i = 0, ii = values.length - 1; i < ii; i++) {
             var xy = translate(i, values[i]),
