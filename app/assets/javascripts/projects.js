@@ -177,6 +177,7 @@ $(function(){
             sub = r.path().attr({stroke: "none", fill: [90, color, color].join("-"), opacity: 0}),
             path = r.path().attr({stroke: color, "stroke-width": 2}),
             unhighlight = function () {};
+        var frame = r.popup(100, 100, label, "right").attr({fill: "#000", stroke: "#666", "stroke-width": 2, "fill-opacity": .7}).hide();
         var ii;
         for (i = 0, ii = values.length - 1; i < ii; i++) {
             var xy = translate(i, values[i]),
@@ -189,6 +190,7 @@ $(function(){
                 blankets.push(r.circle(xy[0], xy[1], w / 2)
                     .attr({stroke: "none", fill: "#fff", opacity: 0})
                     .mouseover(function () {
+                        frame.show().stop();
                         if (isDrag + 1) {
                             unhighlight = function () {};
                         } else {
@@ -196,6 +198,7 @@ $(function(){
                         }
                     })
                     .mouseout(function () {
+                        frame.hide();
                         if (isDrag + 1) {
                             unhighlight = function () {
                                 buttons.items[i].animate({r: 5}, 200);
@@ -222,6 +225,9 @@ $(function(){
         Y.push(xy[1]);
         
         drawPath();
+
+        frame.toFront();
+
         var update = function (i, d) {
             (d > H - 10) && (d = H - 10);
             (d < 10) && (d = 10);
