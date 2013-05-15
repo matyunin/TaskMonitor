@@ -173,20 +173,10 @@ $(function(){
             buttons = r.set(),
             w = (W - 60) / values.length,
             isDrag = -1,
-            label = r.set(),
-            txt = {font: '12px Helvetica, Arial', fill: "#fff"},
-            txt1 = {font: '10px Helvetica, Arial', fill: "#fff"},
-            txt2 = {font: '12px Helvetica, Arial', fill: "#000"},
-            is_label_visible = false,
             start = null,
             sub = r.path().attr({stroke: "none", fill: [90, color, color].join("-"), opacity: 0}),
             path = r.path().attr({stroke: color, "stroke-width": 2}),
             unhighlight = function () {};
-
-        var frame = r.popup(100, 100, label, "right").attr({fill: "#000", stroke: "#666", "stroke-width": 2, "fill-opacity": .7}).hide();
-        label.push(r.text(60, 12, "24 hits").attr(txt));
-        label.push(r.text(60, 27, "22 September 2008").attr(txt1).attr({fill: color}));
-        label.hide();
 
         var ii;
         for (i = 0, ii = values.length - 1; i < ii; i++) {
@@ -200,7 +190,6 @@ $(function(){
                 blankets.push(r.circle(xy[0], xy[1], w / 2)
                     .attr({stroke: "none", fill: "#fff", opacity: 0})
                     .mouseover(function () {
-                        frame.show().stop();
                         if (isDrag + 1) {
                             unhighlight = function () {};
                         } else {
@@ -208,7 +197,6 @@ $(function(){
                         }
                     })
                     .mouseout(function () {
-                        frame.hide();
                         if (isDrag + 1) {
                             unhighlight = function () {
                                 buttons.items[i].animate({r: 5}, 200);
@@ -235,8 +223,6 @@ $(function(){
         Y.push(xy[1]);
         
         drawPath();
-
-        frame.toFront();
 
         var update = function (i, d) {
             (d > H - 10) && (d = H - 10);
