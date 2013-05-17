@@ -1,10 +1,10 @@
 Requirements
 ------------------------
-Debian-based linux
-Ruby on rails
-MongoDB
-PostgreSQL
-Nginx
+- Debian-based linux
+- Ruby on rails
+- MongoDB
+- PostgreSQL
+- Nginx
 
 Required gems
 ------------------------
