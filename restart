@@ -1,3 +1,4 @@
+# Test
 #!/bin/bash
 sudo service nginx stop
 sudo pkill -9 -f puma
