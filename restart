@@ -1,6 +1,6 @@
 #!/bin/bash
-sudo /usr/local/nginx/sbin/nginx -s stop
+sudo service nginx stop
 sudo pkill -9 -f puma
 sudo rm -rf /tmp/taskmonitor.sock
 ./run
-sudo /usr/local/nginx/sbin/nginx
+sudo service nginx start
