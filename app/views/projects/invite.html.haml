@@ -1,0 +1,12 @@
+%form.project-invite{:action => url_for(:controller => 'projects', :action => 'invite_save')}
+
+  %fieldset
+    %legend Пригласить пользователя
+
+    %label Название
+    %input{:name => 'email', :type => 'text', :placeholder => 'E-Mail пользователя в TaskMonitor'}
+
+    %br
+    %br
+
+    %button.btn{:type => 'submit'} Создать

@@ -2,6 +2,6 @@
   .btn-group.btn-group-vertical
     - @projects.each do |p|
       %a.btn{:href => project_path(p)}= p.name
-    %a.btn{:href => '#'}
+    %a.btn#add_project{:href => new_project_path}
       %i.icon-plus
       Добавить проект

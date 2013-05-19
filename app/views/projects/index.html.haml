@@ -9,9 +9,11 @@
     .alert.alert-info
 
       %p
-        %a.btn{:href => project_path(project)}
-          %i.icon-fire
-          = project.name
+        .btn-group
+          %a.btn{:href => project_path(project)}
+            %i.icon-fire
+            = project.name
+          %a.btn.btn-invite{:href => invite_path(project)} Пригласить пользователя
 
       - unless project.description.nil?
         %p

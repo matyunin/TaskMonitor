@@ -1,6 +1,9 @@
 Taskmonitor::Application.routes.draw do
   devise_for :users
 
+  match 'invite/:id' => 'projects#invite', :as => :invite
+  match 'invite/:id/save' => 'projects#invite_save', :as => :invite_save
+
   resources :projects
   resources :tasks
 

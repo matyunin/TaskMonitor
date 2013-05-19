@@ -1,0 +1,15 @@
+%form.project-new{:action => url_for(:controller => 'projects', :action => 'create')}
+
+  %fieldset
+    %legend Добавить проект
+
+    %label Название
+    %input{:name => 'name', :type => 'text', :placeholder => 'название проекта'}
+
+    %label Описание
+    %textarea{:name => 'description', :placeholder => 'краткое описание проекта'}
+
+    %br
+    %br
+
+    %button.btn{:type => 'submit'} Создать

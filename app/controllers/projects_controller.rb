@@ -7,6 +7,37 @@ class ProjectsController < ApplicationController
     @tasks = Task.where(:project.in => @projects.collect {|p| p.id}.to_a)
   end
 
+  def invite
+    render :layout => false
+  end
+
+  def invite_save
+    render :layout => false
+
+    @project = Project.find(params[:id])
+    @user = User.find_by_email(params[:email])
+
+    unless @user.nil? or @project.users.include?(@user)
+      @project.users << @user
+      @project.save!
+    end
+  end
+
+  def new
+    render :layout => false
+  end
+
+  def create
+    render :layout => false
+
+    @project = Project.new(
+        :name         => params[:name],
+        :description  => params[:description]
+    )
+    @project.users << current_user
+    @project.save!
+  end
+
   def show
     require 'json'
 

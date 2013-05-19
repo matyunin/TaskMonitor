@@ -1,19 +1,26 @@
 $(function(){
+    var BTN_PROJECT_INVITE = $('.btn-invite');
+    var BTN_PROJECT_ADD = $('#add_project');
     var BTN_TASK_ADD = $('#add_task');
+    var FORM_PROJECT_INVITE = $('.project-invite');
+    var FORM_PROJECT_NEW = $('.project-new');
     var FORM_TASK_NEW = $('.task-new');
     var INP_DATAPICKER = $('.datapick');
     var day = 60;
 
-    drawTasks(
-        $('.tasks-container .c'),
-        tasks
-    );
+    if (typeof tasks != 'undefined')
+    {
+        drawTasks(
+            $('.tasks-container .c'),
+            tasks
+        );
 
-    drawGrid(
-        $('.tasks-container .c'),
-        time_interval.start,
-        time_interval.finish
-    );
+        drawGrid(
+            $('.tasks-container .c'),
+            time_interval.start,
+            time_interval.finish
+        );
+    }
 
     function drawGrid(container, start, stop){
         var one = $('<div class="v-line"></div>');
@@ -102,6 +109,48 @@ $(function(){
         });
     };
 
+    var FN_PROJECT_ADD = function(e){
+        e.preventDefault();
+        $this = $(this);
+        $.fancybox({
+            type: 'ajax',
+            href: $this.attr('href'),
+            ajax : {
+                type: 'GET',
+                async: true,
+                cache: false
+            },
+            helpers : {
+                overlay : {
+                    css : {
+                        'background' : 'rgba(255, 255, 255, 0.5)'
+                    }
+                }
+            }
+        });
+    };
+
+    var FN_PROJECT_INVITE = function(e){
+        e.preventDefault();
+        $this = $(this);
+        $.fancybox({
+            type: 'ajax',
+            href: $this.attr('href'),
+            ajax : {
+                type: 'GET',
+                async: true,
+                cache: false
+            },
+            helpers : {
+                overlay : {
+                    css : {
+                        'background' : 'rgba(255, 255, 255, 0.5)'
+                    }
+                }
+            }
+        });
+    };
+
     var FN_DATAPICKER_CLICK = function(e){
         e.stopPropagation();
         e.preventDefault();
@@ -132,9 +181,53 @@ $(function(){
         }
     };
 
+    var FN_PROJECT_NEW = function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        var data = $(this).serializeObject();
+        var values = _.values(data);
+        if(typeof _.find(values, function(val){return val=="";}) == 'undefined'){
+            $.post(
+                $(this).attr('action'),
+                data,
+                function(response){
+                    //console.log(response);
+                    window.location.reload();
+                },
+                'json'
+            );
+        }else{
+            alert('Все поля обязательны для заполнения')
+        }
+    };
+
+    var FN_INVITE_NEW = function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        var data = $(this).serializeObject();
+        var values = _.values(data);
+        if(typeof _.find(values, function(val){return val=="";}) == 'undefined'){
+            $.post(
+                $(this).attr('action'),
+                data,
+                function(response){
+                    //console.log(response);
+                    window.location.reload();
+                },
+                'json'
+            );
+        }else{
+            alert('Все поля обязательны для заполнения')
+        }
+    };
+
     $(document).on('click', INP_DATAPICKER.selector, FN_DATAPICKER_CLICK);
     $(document).on('submit', FORM_TASK_NEW.selector, FN_TASK_NEW);
+    $(document).on('submit', FORM_PROJECT_INVITE.selector, FN_INVITE_NEW);
+    $(document).on('submit', FORM_PROJECT_NEW.selector, FN_PROJECT_NEW);
     BTN_TASK_ADD.click(FN_TASK_ADD);
+    BTN_PROJECT_ADD.click(FN_PROJECT_ADD);
+    BTN_PROJECT_INVITE.click(FN_PROJECT_INVITE);
 
     function RRR(ID, W, H, len, values) {
         var r = Raphael(ID, W, H);
