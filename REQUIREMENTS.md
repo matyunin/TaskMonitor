@@ -12,8 +12,7 @@ Required gems
 2. [devise](https://github.com/plataformatec/devise)
 3. [yaml_db](https://github.com/ludicast/yaml_db)
 4. [mysql2](https://github.com/brianmario/mysql2)
-5. mongo
-6. [mongo_ext](https://github.com/biot023/mongo_ext)
-7. [mongo_mapper](https://github.com/jnunemaker/mongomapper)
-8. [high_voltage](https://github.com/thoughtbot/high_voltage)
-9. [puma](https://github.com/puma/puma)
+5. [mongo_ext](https://github.com/biot023/mongo_ext)
+6. [mongo_mapper](https://github.com/jnunemaker/mongomapper)
+7. [high_voltage](https://github.com/thoughtbot/high_voltage)
+8. [puma](https://github.com/puma/puma)
