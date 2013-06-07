@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/carlhuda/bundler.git
-  revision: 3d7fcaa17b2fffa831c546a10b791784eb152414
+  revision: 96ce07f596c29733f5414ffc7f8532e0eabea9cb
   specs:
 
 GIT
@@ -86,6 +86,7 @@ GEM
       plucky (~> 0.5.2)
     multi_json (1.7.2)
     mysql2 (0.3.11)
+    newrelic_rpm (3.6.3.111)
     orm_adapter (0.4.0)
     plucky (0.5.2)
       mongo (~> 1.5)
@@ -155,6 +156,7 @@ DEPENDENCIES
   mongo_ext
   mongo_mapper
   mysql2
+  newrelic_rpm
   puma
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)

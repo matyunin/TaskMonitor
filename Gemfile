@@ -54,3 +54,6 @@ gem 'jquery-rails'
 
 # Web server
 gem 'puma'
+
+# New relic
+gem 'newrelic_rpm'
