@@ -17,7 +17,6 @@ git 'git://github.com/plataformatec/devise.git' do
 end
 
 gem 'yaml_db'
-gem 'mysql2'
 gem "mongo"
 gem "mongo_ext"
 gem 'mongo_mapper'
@@ -57,3 +56,5 @@ gem 'puma'
 
 # New relic
 gem 'newrelic_rpm'
+
+gem 'pg'
